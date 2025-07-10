@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Calculator, DollarSign, TrendingUp, Clock } from 'lucide-react';
-import './index.css';
-import "tailwindcss";
+
 
 const CompoundInterestCalculator = () => {
   const [principal, setPrincipal] = useState('');
