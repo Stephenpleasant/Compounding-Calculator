@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Calculator, DollarSign, TrendingUp, Clock } from 'lucide-react';
 
-
 const CompoundInterestCalculator = () => {
   const [principal, setPrincipal] = useState('');
   const [rate, setRate] = useState('');
@@ -9,6 +8,7 @@ const CompoundInterestCalculator = () => {
   const [compoundFrequency, setCompoundFrequency] = useState('12');
   const [monthlyAddition, setMonthlyAddition] = useState('');
   const [results, setResults] = useState(null);
+  const [currency, setCurrency] = useState('NGN');
 
   const calculateCompoundInterest = () => {
     const P = parseFloat(principal);
@@ -62,7 +62,7 @@ const CompoundInterestCalculator = () => {
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
-      currency: 'USD',
+      currency: currency,
       minimumFractionDigits: 2
     }).format(amount);
   };
@@ -70,9 +70,10 @@ const CompoundInterestCalculator = () => {
   return (
     <div className="max-w-4xl mx-auto p-6 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
       <div className="bg-white rounded-xl shadow-lg p-8">
-        <div className="flex items-center justify-center mb-8">
-          <Calculator className="w-8 h-8 text-blue-600 mr-3" />
-          <h1 className="text-3xl font-bold text-gray-800">Compound Interest Calculator</h1>
+        <div className="flex flex-col items-center justify-center mb-8">
+          <Calculator className="w-8 h-8 text-blue-600 mb-3" />
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">INVESTING CLUB</h1>
+          <h2 className="text-xl font-semibold text-gray-600">Compound Interest Calculator</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -83,16 +84,26 @@ const CompoundInterestCalculator = () => {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-600 mb-2">
-                  <DollarSign className="inline w-4 h-4 mr-1" />
+                  
                   Initial Principal Amount
                 </label>
-                <input
-                  type="number"
-                  value={principal}
-                  onChange={(e) => setPrincipal(e.target.value)}
-                  placeholder="10000"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+                <div className="flex">
+                  <select
+                    value={currency}
+                    onChange={(e) => setCurrency(e.target.value)}
+                    className="px-3 py-3 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 text-sm font-medium"
+                  >
+                    <option value="NGN">₦ NGN</option>
+                    <option value="USD">$ USD</option>
+                  </select>
+                  <input
+                    type="number"
+                    value={principal}
+                    onChange={(e) => setPrincipal(e.target.value)}
+                    placeholder="10000"
+                    className="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent border-l-0"
+                  />
+                </div>
               </div>
 
               <div>
