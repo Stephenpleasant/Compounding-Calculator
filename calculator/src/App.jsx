@@ -68,30 +68,29 @@ const CompoundInterestCalculator = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
-      <div className="bg-white rounded-xl shadow-lg p-8">
-        <div className="flex flex-col items-center justify-center mb-8">
-          <Calculator className="w-8 h-8 text-blue-600 mb-3" />
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">INVESTING CLUB</h1>
-          <h2 className="text-xl font-semibold text-gray-600">Compound Interest Calculator</h2>
+    <div className="max-w-4xl mx-auto p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+      <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8">
+        <div className="flex flex-col items-center justify-center mb-6 sm:mb-8">
+          <Calculator className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 mb-2 sm:mb-3" />
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-1 sm:mb-2 text-center">INVESTING CLUB</h1>
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-600 text-center">Compound Interest Calculator</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {/* Input Section */}
-          <div className="space-y-6">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">Investment Details</h2>
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-700 mb-3 sm:mb-4">Investment Details</h2>
             
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-600 mb-2">
-                  
                   Initial Principal Amount
                 </label>
                 <div className="flex">
                   <select
                     value={currency}
                     onChange={(e) => setCurrency(e.target.value)}
-                    className="px-3 py-3 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 text-sm font-medium"
+                    className="px-2 sm:px-3 py-2 sm:py-3 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50 text-sm font-medium min-w-[80px]"
                   >
                     <option value="NGN">₦ NGN</option>
                     <option value="USD">$ USD</option>
@@ -101,7 +100,7 @@ const CompoundInterestCalculator = () => {
                     value={principal}
                     onChange={(e) => setPrincipal(e.target.value)}
                     placeholder="10000"
-                    className="flex-1 px-4 py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent border-l-0"
+                    className="flex-1 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent border-l-0 min-w-0"
                   />
                 </div>
               </div>
@@ -117,7 +116,7 @@ const CompoundInterestCalculator = () => {
                   onChange={(e) => setRate(e.target.value)}
                   placeholder="5"
                   step="0.1"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
 
@@ -131,7 +130,7 @@ const CompoundInterestCalculator = () => {
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
                   placeholder="10"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
 
@@ -142,7 +141,7 @@ const CompoundInterestCalculator = () => {
                 <select
                   value={compoundFrequency}
                   onChange={(e) => setCompoundFrequency(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="1">Annually</option>
                   <option value="2">Semi-annually</option>
@@ -162,21 +161,21 @@ const CompoundInterestCalculator = () => {
                   value={monthlyAddition}
                   onChange={(e) => setMonthlyAddition(e.target.value)}
                   placeholder="100"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
               </div>
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
               <button
                 onClick={calculateCompoundInterest}
-                className="flex-1 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                className="flex-1 bg-blue-600 text-white px-4 sm:px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm sm:text-base"
               >
                 Calculate
               </button>
               <button
                 onClick={clearCalculator}
-                className="flex-1 bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors font-medium"
+                className="flex-1 bg-gray-500 text-white px-4 sm:px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors font-medium text-sm sm:text-base"
               >
                 Clear
               </button>
@@ -184,58 +183,58 @@ const CompoundInterestCalculator = () => {
           </div>
 
           {/* Results Section */}
-          <div className="space-y-6">
-            <h2 className="text-xl font-semibold text-gray-700 mb-4">Results</h2>
+          <div className="space-y-4 sm:space-y-6">
+            <h2 className="text-lg sm:text-xl font-semibold text-gray-700 mb-3 sm:mb-4">Results</h2>
             
             {results ? (
-              <div className="space-y-4">
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <h3 className="text-lg font-semibold text-green-800 mb-2">Future Value</h3>
-                  <p className="text-3xl font-bold text-green-600">
+              <div className="space-y-3 sm:space-y-4">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-semibold text-green-800 mb-2">Future Value</h3>
+                  <p className="text-2xl sm:text-3xl font-bold text-green-600 break-words">
                     {formatCurrency(results.futureValue)}
                   </p>
                 </div>
 
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-blue-800 mb-2">Total Interest Earned</h4>
-                  <p className="text-xl font-bold text-blue-600">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
+                  <h4 className="font-semibold text-blue-800 mb-2 text-sm sm:text-base">Total Interest Earned</h4>
+                  <p className="text-lg sm:text-xl font-bold text-blue-600 break-words">
                     {formatCurrency(results.totalInterest)}
                   </p>
                 </div>
 
-                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-gray-800 mb-2">Total Contributions</h4>
-                  <p className="text-xl font-bold text-gray-600">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4">
+                  <h4 className="font-semibold text-gray-800 mb-2 text-sm sm:text-base">Total Contributions</h4>
+                  <p className="text-lg sm:text-xl font-bold text-gray-600 break-words">
                     {formatCurrency(results.totalContributions)}
                   </p>
                 </div>
 
-                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-purple-800 mb-3">Breakdown</h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-3 sm:p-4">
+                  <h4 className="font-semibold text-purple-800 mb-3 text-sm sm:text-base">Breakdown</h4>
+                  <div className="space-y-2 text-xs sm:text-sm">
+                    <div className="flex justify-between items-center">
                       <span>Initial Principal:</span>
-                      <span className="font-medium">{formatCurrency(results.principal)}</span>
+                      <span className="font-medium break-words text-right">{formatCurrency(results.principal)}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between items-center">
                       <span>Monthly Additions:</span>
-                      <span className="font-medium">{formatCurrency(results.monthlyAdditions)}</span>
+                      <span className="font-medium break-words text-right">{formatCurrency(results.monthlyAdditions)}</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between items-center">
                       <span>Interest Earned:</span>
-                      <span className="font-medium">{formatCurrency(results.totalInterest)}</span>
+                      <span className="font-medium break-words text-right">{formatCurrency(results.totalInterest)}</span>
                     </div>
                     <hr className="my-2" />
-                    <div className="flex justify-between font-bold">
+                    <div className="flex justify-between items-center font-bold">
                       <span>Total Amount:</span>
-                      <span>{formatCurrency(results.futureValue)}</span>
+                      <span className="break-words text-right">{formatCurrency(results.futureValue)}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                  <h4 className="font-semibold text-yellow-800 mb-2">Growth Multiple</h4>
-                  <p className="text-lg text-yellow-700">
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4">
+                  <h4 className="font-semibold text-yellow-800 mb-2 text-sm sm:text-base">Growth Multiple</h4>
+                  <p className="text-sm sm:text-lg text-yellow-700">
                     Your money will grow by{' '}
                     <span className="font-bold">
                       {((results.futureValue / results.principal) - 1).toFixed(2)}x
@@ -244,9 +243,9 @@ const CompoundInterestCalculator = () => {
                 </div>
               </div>
             ) : (
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
-                <Calculator className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500">
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 sm:p-8 text-center">
+                <Calculator className="w-12 h-12 sm:w-16 sm:h-16 text-gray-400 mx-auto mb-3 sm:mb-4" />
+                <p className="text-gray-500 text-sm sm:text-base">
                   Enter your investment details and click "Calculate" to see your compound interest results.
                 </p>
               </div>
